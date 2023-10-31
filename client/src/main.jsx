@@ -27,6 +27,14 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
+        path: "/orderHistory",
+        element: <OrderHistory />,
+      },
+      {
+        path: "/products/:id",
+        element: <Detail />,
+      },
+      {
         path: "/success",
         element: <Success />,
       },
