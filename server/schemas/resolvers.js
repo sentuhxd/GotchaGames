@@ -39,6 +39,12 @@ const resolvers = {
 
       throw AuthenticationError;
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('category');
+      }
+      throw AuthenticationError;
+    },
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
