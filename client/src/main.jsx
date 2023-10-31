@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NoMatch />,
+    errorElement: <Home />,
     children: [
       {
         index: true,
@@ -25,14 +25,6 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
-      },
-      {
-        path: "/orderHistory",
-        element: <OrderHistory />,
-      },
-      {
-        path: "/products/:id",
-        element: <Detail />,
       },
       {
         path: "/success",
