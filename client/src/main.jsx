@@ -6,12 +6,15 @@ import App from "./App.jsx";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
+import Highscores from "./pages/Highscores";
+import Error from "./pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Home />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -24,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/highscores",
+        element: <Highscores />,
       },
     ],
   },
