@@ -1,8 +1,9 @@
-export function chutesBoard({ ctx, G, moves }) {
-  const onClick = () => moves.rollDie();
-  console.log(ctx);
-  console.log(G);
-  let winner = "";
+
+
+export function tttBoard({ ctx, G, moves }) {
+  const onClick = (id) => moves.clickCell(id);
+
+  let winner = '';
   if (ctx.gameover) {
     winner =
       ctx.gameover.winner !== undefined ? (
@@ -13,21 +14,25 @@ export function chutesBoard({ ctx, G, moves }) {
   }
 
   const cellStyle = {
-    border: "1px solid black",
-    width: "65px",
-    height: "65px",
-    lineHeight: "50px",
-    textAlign: "center",
+    border: '1px solid #555',
+    width: '50px',
+    height: '50px',
+    lineHeight: '50px',
+    textAlign: 'center',
   };
 
   let tbody = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     let cells = [];
-    for (let j = 0; j < 10; j++) {
-      const id = 10 * i + j;
+    for (let j = 0; j < 3; j++) {
+      const id = 3 * i + j;
       cells.push(
         <td key={id}>
-          <div style={cellStyle}>{[id + 1]}</div>
+          {G.cells[id] ? (
+            <div style={cellStyle}>{G.cells[id]}</div>
+          ) : (
+            <button style={cellStyle} onClick={() => onClick(id)} />
+          )}
         </td>
       );
     }
@@ -36,7 +41,6 @@ export function chutesBoard({ ctx, G, moves }) {
 
   return (
     <div>
-      <button onClick={onClick}>Roll Die</button>
       <table id="board">
         <tbody>{tbody}</tbody>
       </table>
