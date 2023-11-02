@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Highscores from "./pages/Highscores";
 import Error from "./pages/Error";
+import Chutes from "./pages/Chutes";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/highscores",
         element: <Highscores />,
+      },
+      {
+        path: "/chutes",
+        element: <Chutes />,
       },
     ],
   },
