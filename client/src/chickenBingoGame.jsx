@@ -51,7 +51,7 @@ export const ChickenBingo = {
         }
     },
 
-    endIf: (G, ctx) => {
+    endIf: (G) => {
         if (checkVictory(G.card)) {
             return { winner: "player" };
         }
