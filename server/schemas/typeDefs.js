@@ -13,10 +13,14 @@ const typeDefs = `
     user: User
   }
 
+  
+
  
 
   type Query {
     users: [User]
+    user: User
+    
     
   }
 
