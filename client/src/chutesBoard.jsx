@@ -1,6 +1,7 @@
 export function chutesBoard({ ctx, G, moves }) {
   const onClick = () => moves.rollDie();
-
+  console.log(ctx);
+  console.log(G);
   let winner = "";
   if (ctx.gameover) {
     winner =
