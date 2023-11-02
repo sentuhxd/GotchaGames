@@ -9,7 +9,7 @@ function Games() {
         <>
           <img src={chuteImage}></img>
           <p className="mx-1">
-            <Link to="/Home">Play Game</Link>
+            <Link to="/Chutes">Play Game</Link>
           </p>
         </>
       );
