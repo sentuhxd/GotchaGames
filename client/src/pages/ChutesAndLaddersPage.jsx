@@ -1,4 +1,4 @@
-import ChutesAndLaddersClient from './ChutesAndLaddersClient'; 
+import { ChutesAndLadders } from "../components/Games/ChutesandLadders"; 
 
 function ChutesAndLaddersPage() {
   return (
