@@ -11,6 +11,15 @@ const resolvers = {
     products: async () => {
       return await Product.find();
     },
+    user: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
+
+        return user;
+      }
+
+      throw AuthenticationError;
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {

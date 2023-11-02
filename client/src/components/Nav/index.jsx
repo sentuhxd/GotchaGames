@@ -10,6 +10,7 @@ function Nav() {
             <Link to="/Shop">Shop</Link>
           </li>
           <li className="mx-1">
+
             <Link to="/Profile">Profile</Link>
           </li>
           <li className="mx-1">

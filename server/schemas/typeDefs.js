@@ -32,6 +32,7 @@ const typeDefs = `
     user: User
   }
 
+
   input ProductInput {
     _id: ID
     purchaseQuantity: Int
