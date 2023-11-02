@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Highscores from "./pages/Highscores";
 import Error from "./pages/Error";
+import Shop from "./pages/Shop";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/highscores",
         element: <Highscores />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
       },
     ],
   },

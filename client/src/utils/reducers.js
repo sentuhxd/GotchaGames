@@ -5,6 +5,7 @@ import {
   REMOVE_FROM_CART,
   CLEAR_CART,
   TOGGLE_CART,
+  ADD_MULTIPLE_TO_CART,
 } from "./actions";
 
 export const reducer = (state, action) => {

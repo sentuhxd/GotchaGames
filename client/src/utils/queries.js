@@ -18,3 +18,24 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_ALL_PRODUCTS = gql`
+  {
+    products {
+      _id
+      name
+      image
+      description
+      price
+      quantity
+    }
+  }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ProductInput]) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
