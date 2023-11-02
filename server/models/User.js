@@ -24,6 +24,21 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  coins: {
+    type: Number,
+  },
+  readyforShoots: {
+    type: Boolean,
+  },
+  readyforChickenShit: {
+    type: Boolean,
+  },
+  orders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
 });
 
 // set up pre-save middleware to create password

@@ -6,6 +6,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+//imports globalstate store provider
+import { StoreProvider } from "./utils/GlobalState";
 
 import Nav from "./components/Nav";
 
@@ -32,8 +34,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-        <Nav />
-        <Outlet />
+        <StoreProvider>
+          <Nav />
+          <Outlet />
+        </StoreProvider>
       </div>
     </ApolloProvider>
   );
