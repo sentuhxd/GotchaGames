@@ -11,6 +11,8 @@ import Highscores from "./pages/Highscores";
 import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
+import Tictac from "./pages/Tictac";
+
 
 
 const router = createBrowserRouter([
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/chutes",
         element: <Chutes />,
+
+      },
+      {
+        path: "/ttt",
+        element: <Tictac />,
 
       },
     ],
