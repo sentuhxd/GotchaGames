@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export function tttBoard({ ctx, G, moves }) {
   const onClick = (id) => moves.clickCell(id);
