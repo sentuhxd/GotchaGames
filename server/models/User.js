@@ -24,6 +24,15 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  coins: {
+    type: Number,
+  },
+  readyforShoots: {
+    type: Boolean,
+  },
+  readyforChickenShit: {
+    type: Boolean,
+  },
 });
 
 // set up pre-save middleware to create password
