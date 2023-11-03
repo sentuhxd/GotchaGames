@@ -12,6 +12,7 @@ import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
 import Tictac from "./pages/Tictac";
+import Chesses from "./pages/Chesses";
 
 
 
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/ttt",
         element: <Tictac />,
+
+      },
+      {
+        path: "/chess",
+        element: <Chesses />,
 
       },
     ],

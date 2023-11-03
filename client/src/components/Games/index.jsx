@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 import chuteImage from "../../assets/chutesboard.png";
 import tttImage from "../../assets/tictactoe.png";
+import chessImage from "../../assets/chessimg.png";
 
 function Games() {
   function showGame() {
@@ -16,6 +17,10 @@ function Games() {
           <p className="mx-1">
             <Link to="/ttt">Play Game</Link>
           </p>
+          <img src={chessImage}></img>
+          <p className="mx-1">
+            <Link to="/chess">Play Game</Link>
+          </p>
         </>
         
         
@@ -28,6 +33,10 @@ function Games() {
             <Link to="/Signup">Sign up to play!</Link>
           </p>
           <img src={tttImage}></img>
+          <p className="mx-1">
+            <Link to="/Signup">Sign up to play!</Link>
+          </p>
+          <img src={chessImage}></img>
           <p className="mx-1">
             <Link to="/Signup">Sign up to play!</Link>
           </p>
