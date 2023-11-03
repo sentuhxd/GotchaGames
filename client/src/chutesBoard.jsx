@@ -1,3 +1,4 @@
+import die from "./assets/die.png";
 export function chutesBoard({ ctx, G, moves }) {
   const onClick = () => moves.rollDie();
   console.log(ctx);
@@ -36,10 +37,23 @@ export function chutesBoard({ ctx, G, moves }) {
     }
     tbody.push(<tr key={i}>{cells}</tr>);
   }
-
+  const dieStyle = {
+    maxHeight: "100%",
+    maxWidth: "100%",
+  };
+  const buttonStyle = {
+    maxHeight: "10%",
+    maxWidth: "10%",
+  };
   return (
     <div>
-      <button onClick={onClick}>Roll Die</button>
+      <div style={{ display: "flex" }}>
+        <button onClick={onClick} style={buttonStyle}>
+          <img src={die} style={dieStyle}></img>
+        </button>
+        <p>Die roll: {G.dieRoll}</p>
+      </div>
+
       <table id="board">
         <tbody>{tbody}</tbody>
       </table>
