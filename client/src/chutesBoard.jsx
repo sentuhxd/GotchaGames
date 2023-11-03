@@ -27,7 +27,10 @@ export function chutesBoard({ ctx, G, moves }) {
       const id = 10 * i + j;
       cells.push(
         <td key={id}>
-          <div style={cellStyle}>{[id + 1]}</div>
+          <div style={cellStyle}>
+            {[id + 1]}
+            <img src={G.cells[id]}></img>
+          </div>
         </td>
       );
     }

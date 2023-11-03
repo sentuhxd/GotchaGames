@@ -1,11 +1,13 @@
 import IsVictory from "./chutesVictory";
+import bluepiece from "./assets/bluepiece.png";
+import redpiece from "./assets/redpiece.png";
 
 export const chutesGame = {
   setup: () => ({
     cells: Array(100).fill(null),
     players: {
-      0: { position: -1 },
-      1: { position: -1 },
+      0: { position: -1, piece: bluepiece },
+      1: { position: -1, piece: redpiece },
     },
     spaces: [
       {
@@ -648,10 +650,12 @@ export const chutesGame = {
     rollDie: ({ ctx, G, random }) => {
       G.dieRoll = random.D6(); // dieRoll = 1–6
       let newPosition = G.players[ctx.currentPlayer].position + G.dieRoll;
+      G.cells[G.players[ctx.currentPlayer].position] = null;
       console.log(newPosition);
       let position = G.spaces[newPosition].goesTo - 1;
       console.log(position);
       G.players[ctx.currentPlayer].position = position;
+      G.cells[position] = G.players[ctx.currentPlayer].piece;
     },
   },
   endIf: ({ G, ctx }) => {
