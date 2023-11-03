@@ -1,6 +1,8 @@
+import die from "./assets/die.png";
 export function chutesBoard({ ctx, G, moves }) {
   const onClick = () => moves.rollDie();
-
+  console.log(ctx);
+  console.log(G);
   let winner = "";
   if (ctx.gameover) {
     winner =
@@ -26,16 +28,32 @@ export function chutesBoard({ ctx, G, moves }) {
       const id = 10 * i + j;
       cells.push(
         <td key={id}>
-          <div style={cellStyle}>{[id + 1]}</div>
+          <div style={cellStyle}>
+            {[id + 1]}
+            <img src={G.cells[id]}></img>
+          </div>
         </td>
       );
     }
     tbody.push(<tr key={i}>{cells}</tr>);
   }
-
+  const dieStyle = {
+    maxHeight: "100%",
+    maxWidth: "100%",
+  };
+  const buttonStyle = {
+    maxHeight: "10%",
+    maxWidth: "10%",
+  };
   return (
     <div>
-      <button onClick={onClick}>Roll Die</button>
+      <div style={{ display: "flex" }}>
+        <button onClick={onClick} style={buttonStyle}>
+          <img src={die} style={dieStyle}></img>
+        </button>
+        <p>Die roll: {G.dieRoll}</p>
+      </div>
+
       <table id="board">
         <tbody>{tbody}</tbody>
       </table>

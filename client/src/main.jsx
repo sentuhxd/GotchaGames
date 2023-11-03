@@ -12,6 +12,11 @@ import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
 import Success from "./pages/Success";
+import Tictac from "./pages/Tictac";
+import Chesses from "./pages/Chesses";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -50,6 +55,16 @@ const router = createBrowserRouter([
       {
         path: "/success",
         element: <Success />,
+      },
+      {
+        path: "/ttt",
+        element: <Tictac />,
+
+      },
+      {
+        path: "/chess",
+        element: <Chesses />,
+
       },
     ],
   },
