@@ -1,6 +1,6 @@
-
+import ChessGame from "../components/Chess/chessGame";
 import { Container } from "@mui/material";
-import { ChessGame } from "../components/Chess/chessGame";
+
 
 const Chesses = () => {
   return (

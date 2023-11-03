@@ -4,20 +4,63 @@ import { Chess } from "chess.js";
 import CustomDialog from "./customDialog";
 
 function ChessGame({ players, room, orientation, cleanup }) {
-  const chess = useMemo(() => new Chess(), []); // <- 1
-  const [fen, setFen] = useState(chess.fen()); // <- 2
+  const chess = useMemo(() => new Chess(), []); 
+  const [fen, setFen] = useState(chess.fen()); 
   const [over, setOver] = useState("");
 
-  // onDrop function
-  function onDrop() {} // <- 3
+  const makeAMove = useCallback(
+    (move) => {
+      try {
+        const result = chess.move(move); 
+        setFen(chess.fen()); 
   
-  // Game component returned jsx
+        console.log("over, checkmate", chess.isGameOver(), chess.isCheckmate());
+  
+        if (chess.isGameOver()) {
+          if (chess.isCheckmate()) {
+            setOver(
+              `Checkmate! ${chess.turn() === "w" ? "black" : "white"} wins!`
+            ); 
+            
+          } else if (chess.isDraw()) { 
+            setOver("Draw"); 
+          } else {
+            setOver("Game over");
+          }
+        }
+  
+        return result;
+      } catch (e) {
+        return null;
+      } 
+    },
+    [chess]
+  );
+
+  // onDrop function
+  function onDrop(sourceSquare, targetSquare) {
+    const moveData = {
+      from: sourceSquare,
+      to: targetSquare,
+      color: chess.turn(),
+      
+    };
+
+    const move = makeAMove(moveData);
+
+    
+    if (move === null) return false;
+
+    return true;
+  }
+  
+  
   return (
     <>
       <div className="board">
-        <Chessboard position={fen} onPieceDrop={onDrop} />  {/**  <- 4 */}
+        <Chessboard position={fen} onPieceDrop={onDrop} />  {}
       </div>
-      <CustomDialog // <- 5
+      <CustomDialog 
         open={Boolean(over)}
         title={over}
         contentText={over}

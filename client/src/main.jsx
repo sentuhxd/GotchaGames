@@ -12,7 +12,7 @@ import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
 import Tictac from "./pages/Tictac";
-import Chesses from "./pages/Chesses"
+import Chesses from "./pages/Chesses";
 
 
 

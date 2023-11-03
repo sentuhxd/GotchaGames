@@ -7,17 +7,17 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export default function CustomDialog({ open, children, title, contentText, handleContinue }) {
   return (
-    <Dialog open={open}> {/*dialog container*/}
+    <Dialog open={open}> {}
       <DialogTitle>{title}</DialogTitle>
-      <DialogContent> {/* Main body of modal/dialog */}
-        <DialogContentText> {/* main text */}
+      <DialogContent> {}
+        <DialogContentText> {}
           {contentText}
         </DialogContentText>
-        {children} {/* Other content */}
+        {children} {}
       </DialogContent>
-      <DialogActions> {/* Dialog action buttons */}
-        {/* Force users to make input without option to cancel */}
-        {/* <Button onClick={handleClose}>Cancel</Button> */}
+      <DialogActions> {}
+        {}
+        {}
         <Button onClick={handleContinue}>Continue</Button>
       </DialogActions>
     </Dialog>

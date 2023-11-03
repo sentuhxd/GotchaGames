@@ -9,7 +9,7 @@ const TicTacToeClient = Client({
     multiplayer: SocketIO({ server: 'localhost:3002'}),
 });
 
-const TictacToe = () => (
+const Tictac = () => (
     <div>
       <TicTacToeClient playerID="0" />
       <TicTacToeClient playerID="1" />
@@ -18,4 +18,4 @@ const TictacToe = () => (
 
 
 
-export default TictacToe;
+export default Tictac;
