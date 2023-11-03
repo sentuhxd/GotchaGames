@@ -649,13 +649,36 @@ export const chutesGame = {
   moves: {
     rollDie: ({ ctx, G, random }) => {
       G.dieRoll = random.D6(); // dieRoll = 1–6
+      console.log("Die Roll", G.dieRoll);
+      const oldPosition = G.players[ctx.currentPlayer].position;
+      console.log("Old Position", oldPosition);
       let newPosition = G.players[ctx.currentPlayer].position + G.dieRoll;
+
+      //
       G.cells[G.players[ctx.currentPlayer].position] = [];
-      console.log(newPosition);
+      console.log(
+        "length",
+        G.cells[G.players[ctx.currentPlayer].position].length
+      );
+      if (G.cells[G.players[ctx.currentPlayer].position].length > 1) {
+        G.cells[G.players[ctx.currentPlayer].position] =
+          G.cells[G.players[ctx.currentPlayer]][1];
+      } else {
+        G.cells[G.players[ctx.currentPlayer].position] = [];
+      }
+
+      console.log(G.cells[G.players[ctx.currentPlayer]]);
+
+      console.log("New Position", newPosition);
       let position = G.spaces[newPosition].goesTo - 1;
       console.log(position);
       //Sets position after accommodating chute/ladder
       G.players[ctx.currentPlayer].position = position;
+      console.log(
+        "length",
+        G.cells[G.players[ctx.currentPlayer].position].length
+      );
+
       //sets the piece
       G.cells[position].push(G.players[ctx.currentPlayer].piece);
     },
