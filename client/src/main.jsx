@@ -11,7 +11,7 @@ import Highscores from "./pages/Highscores";
 import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
-
+import Success from "./pages/Success";
 
 const router = createBrowserRouter([
   {
@@ -40,14 +40,16 @@ const router = createBrowserRouter([
         element: <Highscores />,
       },
       {
-
         path: "/shop",
         element: <Shop />,
       },
       {
         path: "/chutes",
         element: <Chutes />,
-
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
     ],
   },

@@ -9,6 +9,14 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USER_COINS = gql`
+  {
+    user {
+      coins
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {
