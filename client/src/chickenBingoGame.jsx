@@ -13,14 +13,18 @@ const initializeCard = () => {
 };
 
 export const ChickenBingo = {
-    setup: (ctx) => {
+    setup: ({ ctx }) => {
         console.log("Setting up ChickenBingo");
         let playerCards = {};
+        console.log(ctx.numPlayers);
         for (let i = 0; i < ctx.numPlayers; i++) {
             playerCards[i] = {
                 card: initializeCard(),
                 bet: null
             };
+            playerCards = [{
+                card: initializeCard()
+            }]
         }
         return {
             players: playerCards,
@@ -38,6 +42,7 @@ export const ChickenBingo = {
             console.log("chickenPoop called. Chicken position:", x, y);
             let x = Math.floor(Math.random() * GRID_SIZE);
             let y = Math.floor(Math.random() * GRID_SIZE);
+            console.log("chickenPoop called. Chicken position:", x, y);
             G.chickenPosition = { x, y };
         }
     },

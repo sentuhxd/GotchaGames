@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+
 const GRID_SIZE = 5;
 
-const ChickenBingoBoard = (props) => {
-    const { G, moves, ctx } = props;
-    console.log("G:", G);
-    console.log("moves:", moves);
-    console.log("ctx:", ctx);
+const ChickenBingoBoard = ({ G, moves, ctx }) => {
     const [hoveredCell, setHoveredCell] = useState(null);
+    console.log("State G:", G);
+    console.log("Rendering ChickenBingoBoard", G, ctx);
+
     const handleCellClick = (x, y) => {
         moves.placeBet(x, y);
     };
 
+    const currentPlayerCard = G.players[ctx.currentPlayer]?.card || [];
+
     return (
         <div style={{ display: 'grid', gridTemplateColumns: `repeat(${GRID_SIZE}, 60px)`, gap: '5px' }}>
-            {G.players[ctx.currentPlayer].card.map((row, x) => (
+            {currentPlayerCard.map((row, x) => (
                 row.map((cell, y) => (
                     <div 
                         key={`${x}-${y}`}
@@ -25,7 +27,7 @@ const ChickenBingoBoard = (props) => {
                             width: '60px',
                             height: '60px',
                             border: '1px solid black',
-                            backgroundColor: cell ? 'brown' : hoveredCell && hoveredCell.x === x && hoveredCell.y === y ? 'lightgray' : 'white',
+                            backgroundColor: cell ? 'brown' : hoveredCell?.x === x && hoveredCell?.y === y ? 'lightgray' : 'white',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -40,24 +42,20 @@ const ChickenBingoBoard = (props) => {
     );
 };
 
-ChickenBingoBoard.propTypes = {
-    G: PropTypes.shape({
-        players: PropTypes.objectOf(
-            PropTypes.shape({
-                card: PropTypes.arrayOf(
-                    PropTypes.arrayOf(PropTypes.bool)
-                ).isRequired,
-                bet: PropTypes.shape({
-                    x: PropTypes.number,
-                    y: PropTypes.number
-                })
-            }).isRequired
-        ).isRequired
-    }).isRequired,
-    ctx: PropTypes.object.isRequired,
-    moves: PropTypes.shape({
-        placeBet: PropTypes.func.isRequired
-    }).isRequired
-};
-  
+// ChickenBingoBoard.propTypes = {
+//     G: PropTypes.shape({
+//         players: PropTypes.objectOf(
+//             PropTypes.shape({
+//                 card: PropTypes.arrayOf(
+//                     PropTypes.arrayOf(PropTypes.bool)
+//                 ).isRequired,
+//             }).isRequired
+//         ).isRequired
+//     }).isRequired,
+//     ctx: PropTypes.object.isRequired,
+//     moves: PropTypes.shape({
+//         placeBet: PropTypes.func.isRequired
+//     }).isRequired
+// };
+
 export default ChickenBingoBoard;

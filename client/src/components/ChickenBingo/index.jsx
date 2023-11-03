@@ -7,7 +7,7 @@ const ChickenBingoClient = Client({
     game: ChickenBingoGame,
     board: ChickenBingoBoard,
     multiplayer: Local(),
-    numPlayers: 1
+    minPlayers: 1
 });
 
 export default ChickenBingoClient;
