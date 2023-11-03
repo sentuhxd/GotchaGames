@@ -4,7 +4,7 @@ import redpiece from "./assets/redpiece.png";
 
 export const chutesGame = {
   setup: () => ({
-    cells: Array(100).fill(null),
+    cells: Array(100).fill([]),
     players: {
       0: { position: -1, piece: bluepiece },
       1: { position: -1, piece: redpiece },
@@ -650,12 +650,14 @@ export const chutesGame = {
     rollDie: ({ ctx, G, random }) => {
       G.dieRoll = random.D6(); // dieRoll = 1–6
       let newPosition = G.players[ctx.currentPlayer].position + G.dieRoll;
-      G.cells[G.players[ctx.currentPlayer].position] = null;
+      G.cells[G.players[ctx.currentPlayer].position] = [];
       console.log(newPosition);
       let position = G.spaces[newPosition].goesTo - 1;
       console.log(position);
+      //Sets position after accommodating chute/ladder
       G.players[ctx.currentPlayer].position = position;
-      G.cells[position] = G.players[ctx.currentPlayer].piece;
+      //sets the piece
+      G.cells[position].push(G.players[ctx.currentPlayer].piece);
     },
   },
   endIf: ({ G, ctx }) => {
