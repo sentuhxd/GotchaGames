@@ -1,12 +1,12 @@
 import { Client } from 'boardgame.io/react';
 import { tttGame } from "../../tttGame";
 import { tttBoard } from "../../tttBoard";
-import { SocketIO } from "boardgame.io/multiplayer"
+import { Local } from "boardgame.io/multiplayer"
 
 const TicTacToeClient = Client({ 
     game: tttGame, 
     board: tttBoard,
-    multiplayer: SocketIO({ server: 'localhost:3002'}),
+    multiplayer: Local()
 });
 
 const Tictac = () => (

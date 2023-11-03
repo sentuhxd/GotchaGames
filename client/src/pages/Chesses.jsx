@@ -1,5 +1,5 @@
 import ChessGame from "../components/Chess/chessGame";
-import { Container } from "@mui/material";
+import { Container } from '@mui/material'
 
 
 const Chesses = () => {

@@ -37,7 +37,7 @@ function ChessGame({ players, room, orientation, cleanup }) {
     [chess]
   );
 
-  // onDrop function
+  
   function onDrop(sourceSquare, targetSquare) {
     const moveData = {
       from: sourceSquare,
