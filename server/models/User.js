@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Order = require("./Order");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
@@ -33,12 +34,7 @@ const userSchema = new Schema({
   readyforChickenShit: {
     type: Boolean,
   },
-  orders: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Order",
-    },
-  ],
+  orders: [Order.schema],
 });
 
 // set up pre-save middleware to create password
