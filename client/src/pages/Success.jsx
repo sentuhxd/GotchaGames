@@ -24,11 +24,10 @@ function Success() {
       //coins in cart
       const coinsInCart = cart[0].purchaseQuantity;
       const coinsToAdd = currentCoins + coinsInCart;
-      console.log(coinsToAdd);
+      //updates user's coin attribute
       const updatedUser = await updateUser({
         variables: { coins: coinsToAdd },
       });
-      console.log(updatedUser);
 
       const products = cart.map((item) => item._id);
 
