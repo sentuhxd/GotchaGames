@@ -12,7 +12,7 @@ import Error from "./pages/Error";
 import Shop from "./pages/Shop";
 import Chutes from "./pages/Chutes";
 import Tictac from "./pages/Tictac";
-
+import ChickenBingo from "./pages/ChickenBingo";
 
 
 const router = createBrowserRouter([
@@ -56,6 +56,10 @@ const router = createBrowserRouter([
         element: <Tictac />,
 
       },
+      {
+        path: "/chickenbingo",
+        element: <ChickenBingo />,
+    }    
     ],
   },
 ]);

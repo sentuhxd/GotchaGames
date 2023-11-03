@@ -4,6 +4,9 @@ const GRID_SIZE = 5;
 
 const ChickenBingoBoard = (props) => {
     const { G, moves, ctx } = props;
+    console.log("G:", G);
+    console.log("moves:", moves);
+    console.log("ctx:", ctx);
     const [hoveredCell, setHoveredCell] = useState(null);
     const handleCellClick = (x, y) => {
         moves.placeBet(x, y);
