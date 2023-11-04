@@ -1,4 +1,3 @@
-import { INVALID_MOVE } from 'boardgame.io/core';
 
 function IsVictory(cells) {
     const positions = [
@@ -18,7 +17,9 @@ function IsVictory(cells) {
         return cells.filter(c => c === null).length === 0;
     }
 
-export const tttGame = {
+
+
+module.exports = {
     setup: () => ({ cells: Array(9).fill(null) }),
 
     turn: {
@@ -29,7 +30,7 @@ export const tttGame = {
     moves: {
       clickCell:  ({ G, playerID }, id) => {
         if (G.cells[id] !== null) {
-          return INVALID_MOVE;
+          return;
         }
         G.cells[id] = playerID;
       }
