@@ -22,24 +22,31 @@ export const ChickenBingo = {
                 card: initializeCard(),
                 bet: null
             };
-            playerCards = [{
-                card: initializeCard()
-            }]
         }
         return {
             players: playerCards,
             chickenPosition: null,
         };
     },
-
     moves: {
-        placeBet:(G, ctx, x, y) => {
+        placeBet: (G, ctx, x, y) => {
             console.log("placeBet called with", x, y);
-            G.players[ctx.currentPlayer].bet = { x, y };
+            
+            // Log the current state for debugging
+            console.log("Current Player: ", ctx.currentPlayer);
+            console.log("Players: ", G.players);
+    
+            // Check if players object exists and the current player is defined
+            if (G.players && G.players.hasOwnProperty(ctx.currentPlayer)) {
+                G.players[ctx.currentPlayer].bet = { x, y };
+                console.log(`Bet placed for player ${ctx.currentPlayer}:`, G.players[ctx.currentPlayer].bet);
+            } else {
+                // Log an error if the player object is not found
+                console.error('Undefined player object', ctx.currentPlayer, G.players);
+            }
         },
 
         chickenPoop: (G) => {
-            console.log("chickenPoop called. Chicken position:", x, y);
             let x = Math.floor(Math.random() * GRID_SIZE);
             let y = Math.floor(Math.random() * GRID_SIZE);
             console.log("chickenPoop called. Chicken position:", x, y);
