@@ -648,26 +648,16 @@ export const chutesGame = {
   },
   moves: {
     rollDie: ({ ctx, G, random }) => {
+      const currentPlayer = G.players[ctx.currentPlayer];
       G.dieRoll = random.D6(); // dieRoll = 1–6
       console.log("Die Roll", G.dieRoll);
-      const oldPosition = G.players[ctx.currentPlayer].position;
+      const oldPosition = currentPlayer.position;
       console.log("Old Position", oldPosition);
-      let newPosition = G.players[ctx.currentPlayer].position + G.dieRoll;
+      let newPosition = currentPlayer.position + G.dieRoll;
 
       //
-      G.cells[G.players[ctx.currentPlayer].position] = [];
-      console.log(
-        "length",
-        G.cells[G.players[ctx.currentPlayer].position].length
-      );
-      if (G.cells[G.players[ctx.currentPlayer].position].length > 1) {
-        G.cells[G.players[ctx.currentPlayer].position] =
-          G.cells[G.players[ctx.currentPlayer]][1];
-      } else {
-        G.cells[G.players[ctx.currentPlayer].position] = [];
-      }
-
-      console.log(G.cells[G.players[ctx.currentPlayer]]);
+      G.cells[oldPosition] = [];
+      console.log("length", G.cells[newPosition].length);
 
       console.log("New Position", newPosition);
       let position = G.spaces[newPosition].goesTo - 1;
@@ -678,7 +668,12 @@ export const chutesGame = {
         "length",
         G.cells[G.players[ctx.currentPlayer].position].length
       );
-
+      console.log(G.cells[position]);
+      if (G.cells[position].length === 1) {
+        G.cells[oldPosition] = G.cells[oldPosition].shift();
+      } else {
+        G.cells[oldPosition] = [];
+      }
       //sets the piece
       G.cells[position].push(G.players[ctx.currentPlayer].piece);
     },
