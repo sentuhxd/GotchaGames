@@ -4,15 +4,12 @@ import chickenGif from './assets/Chicken_Feed_Light_Brown.gif';
 
 const GRID_SIZE = 5;
 
-const ChickenBingoBoard = ({ G, moves, ctx }) => {
+const ChickenBingoBoard = ({ G, moves, ctx, events}) => {
     const [hoveredCell, setHoveredCell] = useState(null);
-    console.log("State G:", G);
-    console.log("Rendering ChickenBingoBoard", G, ctx);
 
     const handleCellClick = (x, y) => {
-        if (ctx.phase === 'setup') {
-            moves.placeBet(x, y);
-        }
+        moves.placeBet({x, y});
+        events.endTurn();
     };
 
     const currentPlayerCard = G.players[ctx.currentPlayer]?.card || [];
@@ -80,7 +77,8 @@ const ChickenBingoBoard = ({ G, moves, ctx }) => {
 ChickenBingoBoard.propTypes = {
     G: PropTypes.object.isRequired,
     moves: PropTypes.objectOf(PropTypes.func).isRequired,
-    ctx: PropTypes.object.isRequired
+    ctx: PropTypes.object.isRequired,
+    events: PropTypes.object
 };
 
 export default ChickenBingoBoard;

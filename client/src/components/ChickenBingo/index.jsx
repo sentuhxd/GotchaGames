@@ -6,7 +6,7 @@ import ChickenBingoBoard from "../../chickenBingoBoard";
 const ChickenBingoClient = Client({
     game: ChickenBingoGame,
     board: ChickenBingoBoard,
-    multiplayer: Local(),
+    // multiplayer: Local(),
     numPlayers: 2
 });
 
