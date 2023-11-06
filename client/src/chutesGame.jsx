@@ -300,8 +300,8 @@ export const chutesGame = {
       },
       {
         space: 49,
-        type: "normal",
-        goesTo: 49,
+        type: "chute",
+        goesTo: 10,
         occupied: false,
       },
       {
@@ -343,7 +343,7 @@ export const chutesGame = {
       {
         space: 56,
         type: "chute",
-        goesTo: 53,
+        goesTo: 54,
         occupied: false,
       },
       {
@@ -379,7 +379,7 @@ export const chutesGame = {
       {
         space: 62,
         type: "chute",
-        goesTo: 19,
+        goesTo: 23,
         occupied: false,
       },
       {
@@ -390,7 +390,7 @@ export const chutesGame = {
       },
       {
         space: 64,
-        type: "chute",
+        type: "normal",
         goesTo: 64,
         occupied: false,
       },
