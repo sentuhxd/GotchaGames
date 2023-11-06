@@ -391,7 +391,7 @@ export const chutesGame = {
       {
         space: 64,
         type: "chute",
-        goesTo: 60,
+        goesTo: 64,
         occupied: false,
       },
       {
