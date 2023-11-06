@@ -75,9 +75,11 @@ export const ChickenBingo = {
       },
       endIf: (G, ctx) => {
         // End condition for the play phase or the game
+        return G.chickenPosition !== null;
       },
       onEnd: (G, ctx) => {
         // Logic to execute at the end of the play phase
+        onsole.log('The play phase has ended because the chicken has pooped.');
       },
     },
   },
