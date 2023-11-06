@@ -4,7 +4,7 @@ import redpiece from "./assets/redpiece.png";
 
 export const chutesGame = {
   setup: () => ({
-    cells: Array(100).fill(null),
+    cells: Array(100).fill([]),
     players: {
       0: { position: -1, piece: bluepiece },
       1: { position: -1, piece: redpiece },
@@ -648,14 +648,43 @@ export const chutesGame = {
   },
   moves: {
     rollDie: ({ ctx, G, random }) => {
+      console.log(JSON.parse(JSON.stringify(G.players)));
+      const currentPlayer = G.players[ctx.currentPlayer];
       G.dieRoll = random.D6(); // dieRoll = 1–6
-      let newPosition = G.players[ctx.currentPlayer].position + G.dieRoll;
-      G.cells[G.players[ctx.currentPlayer].position] = null;
-      console.log(newPosition);
+      console.log("Die Roll", G.dieRoll);
+      const oldPosition = currentPlayer.position;
+      resetSpace(G, oldPosition);
+      console.log("Old Position", oldPosition);
+      let newPosition = currentPlayer.position + G.dieRoll;
+
+      //
+
+      if (oldPosition === -1) {
+        G.cells[oldPosition] = [];
+      } else {
+        console.log(
+          "old position",
+          JSON.parse(JSON.stringify(G.cells[oldPosition]))
+        );
+      }
+
+      console.log(G.cells[oldPosition]);
+
+      console.log("New Position", newPosition);
       let position = G.spaces[newPosition].goesTo - 1;
       console.log(position);
+      //Sets position after accommodating chute/ladder
       G.players[ctx.currentPlayer].position = position;
-      G.cells[position] = G.players[ctx.currentPlayer].piece;
+
+      console.log("this is the position value", position);
+      console.log("Should be a player image src:", G.cells);
+
+      G.cells[position].push(G.players[ctx.currentPlayer].piece);
+      if (newPosition < 100)
+        console.log(
+          "new position",
+          JSON.parse(JSON.stringify(G.cells[newPosition]))
+        );
     },
   },
   endIf: ({ G, ctx }) => {
@@ -664,3 +693,12 @@ export const chutesGame = {
     }
   },
 };
+function resetSpace(G, oldPosition) {
+  if (oldPosition === -1) {
+    G.cells[oldPosition] = [];
+  } else if (JSON.parse(JSON.stringify(G.cells[oldPosition])).length === 2) {
+    JSON.parse(JSON.stringify(G.cells[oldPosition].shift()));
+  } else {
+    G.cells[oldPosition] = [];
+  }
+}

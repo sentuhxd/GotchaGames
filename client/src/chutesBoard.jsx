@@ -19,18 +19,35 @@ export function chutesBoard({ ctx, G, moves }) {
     height: "65px",
     lineHeight: "50px",
     textAlign: "center",
+    position: "relative",
   };
-
+  const imageStyle = {
+    position: "absolute",
+    top: 10,
+    left: 10,
+  };
   let tbody = [];
   for (let i = 0; i < 10; i++) {
     let cells = [];
     for (let j = 0; j < 10; j++) {
       const id = 10 * i + j;
+      const currentPlayer = G.players[ctx.currentPlayer];
+
       cells.push(
         <td key={id}>
           <div style={cellStyle}>
             {[id + 1]}
-            <img src={G.cells[id]}></img>
+            {G.cells[id]?.map((occupant, index) => (
+              <img
+                style={{
+                  ...imageStyle,
+                  top: 10 + Math.ceil(Math.random() * 5),
+                  left: 10 + Math.ceil(Math.random() * 5),
+                }}
+                key={index}
+                src={occupant}
+              ></img>
+            ))}
           </div>
         </td>
       );
