@@ -33,7 +33,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div
+        style={{
+          background:
+            "radial-gradient(circle, rgba(166,164,166,1) 0%, rgba(34,11,242,1) 100%)",
+        }}
+      >
         <StoreProvider>
           <Nav />
           <Outlet />
