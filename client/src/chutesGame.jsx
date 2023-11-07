@@ -692,6 +692,15 @@ export const chutesGame = {
       return { winner: ctx.currentPlayer };
     }
   },
+  ai: {
+    enumerate: (G, ctx) => {
+      let moves = [];
+      for (let i = 0; i < 9; i++) {
+        moves.push({ move: "rollDie" });
+      }
+      return moves;
+    },
+  },
 };
 function resetSpace(G, oldPosition) {
   if (oldPosition === -1) {
