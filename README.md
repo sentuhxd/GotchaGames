@@ -42,7 +42,7 @@ No included test
 
 ## Questions
 
-If you have any questions you can contact us at the options below:
+Questions? Contact us Here: 
 
 - [Ian](https://github.com/sentuhxd)
 - [Maddy](https://github.com/MaddyKm)
