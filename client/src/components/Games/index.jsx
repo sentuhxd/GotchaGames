@@ -46,6 +46,12 @@ function Games() {
             Play Game
           </Link>
         </p>
+        <img src={chickenBingoImage}></img>
+        <p className="mx-1">
+          <Link onClick={() => decreaseCoins(coins)} to="/chickenbingo">
+            Play Game
+          </Link>
+        </p>
       </>
     );
   } else if (!loading && coins === 0) {
