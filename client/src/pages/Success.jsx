@@ -48,25 +48,27 @@ function Success() {
   }, [addOrder, updateUser, loading]);
 
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h1>Success!</h1>
-        {currentCart?.map((product) => (
-          <SuccessItem
-            key={product._id}
-            _id={product._id}
-            image={product.image}
-            name={product.name}
-            price={product.price}
-            quantity={product.purchaseQuantity}
-          />
-        ))}
+    <div style={{ height: "100vh" }}>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h1>Success!</h1>
+          {currentCart?.map((product) => (
+            <SuccessItem
+              key={product._id}
+              _id={product._id}
+              image={product.image}
+              name={product.name}
+              price={product.price}
+              quantity={product.purchaseQuantity}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
