@@ -662,6 +662,7 @@ export const chutesGame = {
   },
   endIf: ({ G, ctx }) => {
     if (IsVictory(G, ctx)) {
+      alert("Game Over! Winner: Player " + ctx.currentPlayer);
       return { winner: ctx.currentPlayer };
     }
   },
