@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-
+import ChickenBingo from './pages/ChickenBingo';
 import App from "./App.jsx";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -66,6 +66,10 @@ const router = createBrowserRouter([
         element: <Chesses />,
 
       },
+      {
+        path: "/chickenbingo",
+        element: <ChickenBingo />,
+    }    
     ],
   },
 ]);
