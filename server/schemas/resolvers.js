@@ -22,6 +22,7 @@ const resolvers = {
 
       throw AuthenticationError;
     },
+
     orders: async () => {
       return await Order.find().populate("products");
     },
@@ -85,7 +86,6 @@ const resolvers = {
     },
 
     updateUser: async (parent, args, context) => {
-      console.log("args:", args);
       if (context.user) {
         return await User.findByIdAndUpdate(
           context.user._id,

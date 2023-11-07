@@ -29,6 +29,8 @@ function Success() {
         variables: { coins: coinsToAdd },
       });
 
+      console.log("updated user", updatedUser);
+
       const products = cart.map((item) => item._id);
 
       if (products.length) {
