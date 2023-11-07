@@ -18,7 +18,7 @@ const Profile = () => {
           <div className="container my-1">
             <h1>
               {" "}
-              This is {user.firstName} {user.lastName} profile
+              This is {user.firstName} {user.lastName}'s profile
             </h1>
           </div>
         ) : null}
