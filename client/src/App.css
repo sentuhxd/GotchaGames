@@ -18,6 +18,40 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.bingo-board {
+  position: relative; 
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 5px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.bingo-cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative; /* For stacking chicken gif on top */
+}
+
+.chicken-gif {
+  position: absolute; /* Positioned absolutely within the board */
+  pointer-events: none; /* So it doesn't interfere with clicking on cells */
+  transition: top 0.5s, left 0.5s; /* Smooth transition for moving the chicken */
+}
+
+.bet-cell {
+  background-color: lightblue;
+}
+
+.poop-cell {
+  background-color: brown;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
